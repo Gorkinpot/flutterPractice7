@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'converter_screen.dart';
 import 'rates_screen.dart';
-import '../main.dart';
+import 'package:work/screens/main_menu_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
