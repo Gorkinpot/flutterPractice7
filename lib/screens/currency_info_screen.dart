@@ -8,7 +8,13 @@ class CurrencyInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Информация о $currency")),
+      appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pop(context),
+          ),
+          title: Text("Информация о $currency")
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

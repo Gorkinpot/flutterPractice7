@@ -119,24 +119,11 @@ class _CurrencyConverterScreenState extends State<CurrencyConverterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          children: [
-            CachedNetworkImage(
-              imageUrl: decorConvert,
-              width: 32,
-              height: 32,
-              placeholder: (context, url) => const SizedBox(
-                width: 32,
-                height: 32,
-                child: CircularProgressIndicator(strokeWidth: 2),
-              ),
-              errorWidget: (context, url, error) =>
-              const Icon(Icons.currency_exchange),
-            ),
-            const SizedBox(width: 8),
-            const Text("Конвертер валют"),
-          ],
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
         ),
+        title: const Text("Конвертер валют"),
         centerTitle: true,
         actions: [
           IconButton(
@@ -145,6 +132,7 @@ class _CurrencyConverterScreenState extends State<CurrencyConverterScreen> {
           ),
         ],
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

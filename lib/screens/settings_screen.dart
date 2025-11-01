@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:work/screens/currency_info_screen.dart';
 import 'converter_screen.dart';
 import 'rates_screen.dart';
 import 'package:work/screens/main_menu_screen.dart';
@@ -9,7 +10,13 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Настройки")),
+      appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pop(context),
+          ),
+          title: const Text("Настройки")
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -18,10 +25,10 @@ class SettingsScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (_) => const CurrencyConverterScreen()),
+                  MaterialPageRoute(builder: (_) => const CurrencyInfoScreen(currency: "USD")),
                 );
               },
-              child: const Text("Перейти к конвертеру (горизонтальный переход)"),
+              child: const Text("Перейти к детальной инфрмации о курсе USD (горизонтальный переход)"),
             ),
             const SizedBox(height: 12),
             ElevatedButton(

@@ -14,7 +14,13 @@ class HistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("История конвертаций")),
+      appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pop(context),
+          ),
+          title: const Text("История конвертаций")
+      ),
       body: history.isEmpty
           ? const Center(child: Text("История пуста"))
           : ListView.builder(
