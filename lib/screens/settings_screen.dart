@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'converter_screen.dart';
 import 'rates_screen.dart';
+import '../main.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -20,8 +21,9 @@ class SettingsScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (_) => const CurrencyConverterScreen()),
                 );
               },
-              child: const Text("Перейти к конвертеру"),
+              child: const Text("Перейти к конвертеру (горизонтальный переход)"),
             ),
+            const SizedBox(height: 12),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushReplacement(
@@ -29,7 +31,17 @@ class SettingsScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (_) => const RatesScreen()),
                 );
               },
-              child: const Text("Перейти к курсам валют"),
+              child: const Text("Перейти к курсам валют (горизонтальный переход)"),
+            ),
+            const SizedBox(height: 12),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (_) => const MainMenuScreen()),
+                );
+              },
+              child: const Text("Вернуться в главное меню (горизонтальный переход)"),
             ),
           ],
         ),

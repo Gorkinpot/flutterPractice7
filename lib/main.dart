@@ -33,7 +33,7 @@ class MainMenuScreen extends StatelessWidget {
         children: [
           ElevatedButton(
             onPressed: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => const CurrencyConverterScreen()),
               );
@@ -43,7 +43,7 @@ class MainMenuScreen extends StatelessWidget {
           const SizedBox(height: 12),
           ElevatedButton(
             onPressed: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => const RatesScreen()),
               );
@@ -53,20 +53,22 @@ class MainMenuScreen extends StatelessWidget {
           const SizedBox(height: 12),
           ElevatedButton(
             onPressed: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                 context,
-                MaterialPageRoute(builder: (_) => const HistoryScreen(
-                  history: [],
-                  onDelete: _dummyDelete,
-                )),
+                MaterialPageRoute(
+                  builder: (_) => HistoryScreen(
+                    history: const [],
+                    onDelete: (index) {},
+                  ),
+                ),
               );
             },
-            child: const Text("История"),
+            child: const Text("История конвертаций"),
           ),
           const SizedBox(height: 12),
           ElevatedButton(
             onPressed: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => const SettingsScreen()),
               );
@@ -77,6 +79,4 @@ class MainMenuScreen extends StatelessWidget {
       ),
     );
   }
-
-  static void _dummyDelete(int index) {}
 }
