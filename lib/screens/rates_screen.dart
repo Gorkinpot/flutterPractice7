@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'currency_info_screen.dart';
+import 'package:go_router/go_router.dart';
 
 class RatesScreen extends StatelessWidget {
   const RatesScreen({super.key});
@@ -17,14 +17,7 @@ class RatesScreen extends StatelessWidget {
           return ListTile(
             title: Text(currency),
             trailing: const Icon(Icons.arrow_forward_ios),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => CurrencyInfoScreen(currency: currency),
-                ),
-              );
-            },
+            onTap: () => context.push('/info/$currency'),
           );
         },
       ),

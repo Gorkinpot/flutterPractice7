@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CurrencyInfoScreen extends StatelessWidget {
   final String currency;
@@ -8,22 +9,18 @@ class CurrencyInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Информация о $currency")),
+      appBar: AppBar(
+        title: Text("Информация о $currency"),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.pop(),
+        ),
+      ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Подробная информация о валюте $currency",
-              style: const TextStyle(fontSize: 18),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text("Назад"),
-            ),
-          ],
+        child: Text(
+          "Подробная информация о валюте $currency",
+          style: const TextStyle(fontSize: 18),
+          textAlign: TextAlign.center,
         ),
       ),
     );

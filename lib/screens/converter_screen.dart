@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'history_screen.dart';
 import 'package:work/models/history_item.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:go_router/go_router.dart';
 
 class CurrencyConverterScreen extends StatefulWidget {
   const CurrencyConverterScreen({super.key});
 
   @override
-  State<CurrencyConverterScreen> createState() =>
-      _CurrencyConverterScreenState();
+  State<CurrencyConverterScreen> createState() => _CurrencyConverterScreenState();
 }
 
 class _CurrencyConverterScreenState extends State<CurrencyConverterScreen> {
@@ -67,19 +66,7 @@ class _CurrencyConverterScreenState extends State<CurrencyConverterScreen> {
   }
 
   void openHistoryScreen() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => HistoryScreen(
-          history: history,
-          onDelete: (index) {
-            setState(() {
-              history.removeAt(index);
-            });
-          },
-        ),
-      ),
-    );
+    context.push('/history', extra: history);
   }
 
   Widget flagForCurrency(String cur) {

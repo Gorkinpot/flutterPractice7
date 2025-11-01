@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'converter_screen.dart';
-import 'rates_screen.dart';
-import '../main.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -9,39 +7,24 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Настройки")),
+      appBar: AppBar(title: const Text("Настройки (GoRouter)")),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (_) => const CurrencyConverterScreen()),
-                );
-              },
-              child: const Text("Перейти к конвертеру (горизонтальный переход)"),
+              onPressed: () => context.pushReplacement('/converter'),
+              child: const Text("Конвертер (горизонтальный переход)"),
             ),
             const SizedBox(height: 12),
             ElevatedButton(
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (_) => const RatesScreen()),
-                );
-              },
-              child: const Text("Перейти к курсам валют (горизонтальный переход)"),
+              onPressed: () => context.pushReplacement('/rates'),
+              child: const Text("Курсы валют (горизонтальный переход)"),
             ),
             const SizedBox(height: 12),
             ElevatedButton(
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (_) => const MainMenuScreen()),
-                );
-              },
-              child: const Text("Вернуться в главное меню (горизонтальный переход)"),
+              onPressed: () => context.pushReplacement('/'),
+              child: const Text("Главное меню (горизонтальный переход)"),
             ),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:work/models/history_item.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:go_router/go_router.dart';
 
 class HistoryScreen extends StatelessWidget {
   final List<HistoryItem> history;
@@ -14,7 +15,13 @@ class HistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("История конвертаций")),
+      appBar: AppBar(
+        title: const Text("История конвертаций"),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.pop(),
+        ),
+      ),
       body: history.isEmpty
           ? const Center(child: Text("История пуста"))
           : ListView.builder(
