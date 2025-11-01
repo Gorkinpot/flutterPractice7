@@ -9,7 +9,13 @@ class RatesScreen extends StatelessWidget {
     final currencies = ["USD", "EUR", "RUB", "KZT"];
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Курсы валют")),
+      appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            tooltip: 'Назад',
+            onPressed: () => context.pop(),
+          ),
+          title: const Text("Курсы валют")),
       body: ListView.builder(
         itemCount: currencies.length,
         itemBuilder: (context, index) {

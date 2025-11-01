@@ -7,14 +7,23 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Настройки (GoRouter)")),
+      appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            tooltip: 'Назад',
+            onPressed: () => context.pop(),
+          ),
+          title: const Text("Настройки (GoRouter)")),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () => context.pushReplacement('/converter'),
-              child: const Text("Конвертер (горизонтальный переход)"),
+              onPressed: () => context.pushReplacementNamed(
+                'info',
+                pathParameters: {'currency': 'USD'},
+              ),
+              child: const Text("Подробная информация о валюте USD (горизонтальный переход)"),
             ),
             const SizedBox(height: 12),
             ElevatedButton(
