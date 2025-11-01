@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'converter_screen.dart';
-import 'history_screen.dart';
-import 'rates_screen.dart';
-import 'settings_screen.dart';
+import 'package:go_router/go_router.dart';
 
 class MainMenuScreen extends StatelessWidget {
   const MainMenuScreen({super.key});
@@ -15,47 +12,22 @@ class MainMenuScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         children: [
           ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const CurrencyConverterScreen()),
-              );
-            },
+            onPressed: () => context.push('/converter'),
             child: const Text("Конвертер валют"),
           ),
           const SizedBox(height: 12),
           ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const RatesScreen()),
-              );
-            },
+            onPressed: () => context.push('/rates'),
             child: const Text("Курсы валют"),
           ),
           const SizedBox(height: 12),
           ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => HistoryScreen(
-                    history: const [],
-                    onDelete: (index) {},
-                  ),
-                ),
-              );
-            },
+            onPressed: () => context.push('/history', extra: []),
             child: const Text("История конвертаций"),
           ),
           const SizedBox(height: 12),
           ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const SettingsScreen()),
-              );
-            },
+            onPressed: () => context.push('/settings'),
             child: const Text("Настройки"),
           ),
         ],

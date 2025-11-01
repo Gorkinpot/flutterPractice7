@@ -33,10 +33,14 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/history',
       name: 'history',
-      builder: (context, state) => HistoryScreen(
-        history: state.extra as List<HistoryItem>? ?? [],
-        onDelete: (index) {},
-      ),
+      builder: (context, state) {
+        final extra = state.extra;
+        final history = (extra is List<HistoryItem>) ? extra : <HistoryItem>[];
+        return HistoryScreen(
+          history: history,
+          onDelete: (index) {},
+        );
+      },
     ),
     GoRoute(
       path: '/info/:currency',
